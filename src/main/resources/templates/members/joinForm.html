@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: header">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="wrapper">
+            <!-- Header-->
+            <div th:replace="layout/bodyHeader :: bodyHeader"/>
+            <!-- Sidebar -->
+<!--            <div th:replace="layout/sidebar :: sidebar"/>-->
+            <!-- Content-->
+            <div class="container">
+                <div class="join-h2">
+                    <h2>알라딘 회원가입</h2>
+                </div>
+                <div class="join">
+                    <div class="row">
+                        <div class="col-lg-3 ">
+                            좌
+                        </div>
+                        <div class="col-md-6 join-form-wrapper">
+                            <form  th:object="${memberForm}" method="post">
+                                <div class="form-group">
+                                    <label th:for="member_email">이메일</label>
+                                    <input id="inputEmail" type="text" th:field="*{member_email}" class="form-control"
+                                           placeholder="이메일을 입력하세요"
+                                           th:class="${#fields.hasErrors('member_email')}? 'form-control fieldError' : 'form-control'">
+                                    <!-- #fields에 에러가 있으면 'form-control fieldError'로 없으면 'form-control'로 만든다. -->
+                                    <button class="emailChekBtn" formaction="/members/new">버튼</button>
+                                    <p th:if="${#fields.hasErrors('member_email')}"
+                                       th:errors="*{member_email}">Incorrect date</p>
+                                    <!-- #fields에 에러가 있으면 "*{member_email}"의 에러메시지를 뽑아서 출력 -->
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="member_pw">비밀번호</label>
+                                    <input type="text" th:field="*{member_pw}" class="form-control"
+                                           placeholder="비밀번호를 입력하세요"
+                                           th:class="${#fields.hasErrors('member_pw')}? 'form-control fieldError' : 'form-control'">
+                                    <p th:if="${#fields.hasErrors('member_pw')}"
+                                       th:errors="*{member_pw}">Incorrect date</p>
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="member_pw_check">비밀번호 확인</label>
+                                    <input type="text" th:field="*{member_pw_check}" class="form-control"
+                                           placeholder="비빌번호 확인을 입력하세요"
+                                           th:class="${#fields.hasErrors('member_pw_check')}? 'form-control fieldError' : 'form-control'">
+                                    <p th:if="${#fields.hasErrors('member_pw_check')}"
+                                       th:errors="*{member_pw_check}">Incorrect date</p>
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="member_name">닉네임</label>
+                                    <input type="text" th:field="*{member_name}" class="form-control"
+                                           placeholder="닉네임을 입력하세요"
+                                           th:class="${#fields.hasErrors('member_name')}? 'form-control fieldError' : 'form-control'">
+                                    <p th:if="${#fields.hasErrors('member_name')}"
+                                       th:errors="*{member_name}">Incorrect date</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label th:for="city">도시명</label>
+                                    <input type="text" th:field="*{city}" class="form-control"placeholder="도시명을 입력하세요">   <!-- th:field="*{city}" -> id랑 name을 맞춰 줌. (id="city" name="city")-->
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="detailed_addr">상세주소</label>
+                                    <input type="text" th:field="*{detailed_addr}" class="form-control"placeholder="상세주소를 입력하세요">
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="zipcode">ZIPCODE</label>
+                                    <input type="text"  th:field="*{zipcode}" class="form-control" placeholder="ZIPCODE를 입력하세요">
+                                </div>
+                                <button type="submit" class="btn btn-primary" formaction="/members/new">회원가입</button>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            우
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Content-->
+        </div>
+        <div th:replace="layout/footer :: footer"/>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!--    <script>
+        $("#emailChekBtn").click(function (){
+           let inputEmail = $("#inputEmail").val();
+           $.ajax({
+
+
+
+           });
+        });
+    </script>-->
+    <script src = "/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <!-- Header-->
+<nav class="header-wrapper" th:fragment="bodyHeader">
+  <div class="container">
+    <div class="row header-wrapper1 ">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-6 header-main">
+        <h1>책 바꾸자</h1>
+      </div>
+      <div class="col-sm-3 search-btn">
+        <div class="search-wrapper">
+          <form>
+            <input class="search-text">
+            <button>검색</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row header-wrapper2">
+      <div class="col-sm-3">
+
+      </div>
+      <div class="col-sm-6">
+        <span class="col-sm-4"><a href="">도서</a></span>
+        <span class="col-sm-4"><a href="">음반</a></span>
+      </div>
+      <div class="col-sm-3 session-off">
+        <span class="col-sm-4"><input type="hidden" class="login-sessionCheck" th:value="${session.member_id}"></span>
+        <span class="col-sm-4 login-window"><a href="javascript:void(0)">로그인</a></span>
+        <span class="col-sm-4"><a href="/members/new">회원가입</a></span>
+      </div>
+      <div class="col-sm-3 session-on">
+        <span class="col-sm-4"><a href="/members/myInfo">내 정보</a></span>
+        <span class="col-sm-4 "><a href="">장바구니</a></span>
+        <span class="col-sm-4 "><a href="/members/logout">로그아웃</a></span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+

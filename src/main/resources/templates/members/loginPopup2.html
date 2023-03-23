@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>팝업 1</title>
+  <style >
+    body {
+
+      font-size: 24px;
+
+    }
+  </style>
+</head>
+
+<body>
+<!--<div class="content-wrapper">
+  <div class="login-form">
+    <form class="login-form-data" action="/members/login" method="post">
+      <div class="form-group">
+        <label>이메일</label>
+        <input type="text" id="" class="form-control" placeholder="이메일을 입력하세요" >
+      </div>
+      <div class="form-group">
+        <label>비밀번호</label>
+        <input type="text" class="form-control" placeholder="비밀번호를 입력하세요">
+      </div>
+      <button type="button" class="submit">Submit</button>
+    </form>
+  </div>
+</div>-->
+<!--<a href="#" onclick="win_close()">[닫기]</a>-->
+<!- -<div class="content-wrapper">
+  <div class="login-form">
+    <form class="login-form-data" action="/members/login" th:object="${loginForm}" method="post">
+      <input type="hidden" class="login-sessionCheck" th:value="${session.member_id}">
+      <div class="form-group">
+        <label th:for="member_email">이메일</label>
+        <input type="text" th:field="*{member_email}" class="form-control" placeholder="비밀번호를 입력하세요" >
+      </div>
+      <div class="form-group">
+        <label th:for="member_pw">비밀번호</label>
+        <input type="text" th:field="*{member_pw}" class="form-control" placeholder="닉네임을 입력하세요">
+      </div>
+      <button type="button" class="submit" onclick="submitForm()">Submit</button>
+    </form>
+  </div>
+</div>
+<a href="#" onclick="win_close()">[닫기]</a>
+
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+  function submitForm() {
+
+  }
+</script>
+<!--<script>
+  // let loginCheck = document.querySelector(".login-sessionCheck").value;
+  let submit = document.querySelector(".submit");
+  $("login-form-data").submit();
+  submit.addEventListener("click",function () {
+
+    $.ajax({
+      url: '/members/login',   // 이부분에 컨트롤러 매핑값
+      type: 'POST',
+      data: $(".login-form-data").serialize(),
+      success: function (response) {
+        if (response.success()) {
+          window.opener.location.reload();
+          window.close();
+        }else {
+          alert(response.message)
+        }
+      }
+    });
+  });
+/*
+  if(loginCheck != ""){
+    //window.close();
+    self.close();
+  }
+*/
+
+</script>-->
+<script type="text/javascript">
+  function win_close() {
+
+  }
+</script>
+<!--<script>
+  $.ajax({
+    url: '/members/login',   // 이부분에 컨트롤러 매핑값
+
+    type: 'POST',
+    data: {
+      // 보낼 데이터
+    },
+    dataType: 'json, xml, script, text 또는 html',
+    done: function(response) {
+      // 성공 시 동작
+    },
+    fail: function(error) {
+      // 실패 시 동작
+    },
+    always: function(response) {
+      // 성공하든 실패하든 항상 할 동작
+    }
+  });
+</script>-->
+</html>

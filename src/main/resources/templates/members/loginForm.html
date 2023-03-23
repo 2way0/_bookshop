@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: header">
+</head>
+<body>
+<div class="wrapper">
+  <div id="wrapper">
+    <!-- Header-->
+    <div th:replace="layout/bodyHeader :: bodyHeader"/>
+    <!-- Sidebar -->
+    <div th:replace="layout/sidebar :: sidebar"/>
+    <!-- Content-->
+    <div class="content-wrapper">
+      <div class="login-form">
+        <form role="form" action="/members/login" th:object="${loginForm}" method="post">
+          <div class="form-group">
+            <label th:for="member_email">이메일</label>
+            <input type="text" th:field="*{member_email}" class="form-control" placeholder="비밀번호를 입력하세요" >
+          </div>
+          <div class="form-group">
+            <label th:for="member_pw">비밀번호</label>
+            <input type="text" th:field="*{member_pw}" class="form-control" placeholder="닉네임을 입력하세요">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!-- /Content-->
+  </div>
+  <div th:replace="layout/footer :: footer"/>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+  let sidebarOn = document.querySelector('.sidebar-ul');
+  let clickedClass = "on";
+  function sidebarClick(){
+    sidebarOn.classList.toggle(clickedClass);
+  }
+  sidebarOn.addEventListener("click", sidebarClick);
+
+  // document.querySelector('#sidebar-ul').addEventListener('click', ()=>{
+  //     document.querySelector('#sidebar-ul').classList.toggle('on');
+  // })
+</script>
+
+</body>
+</html>

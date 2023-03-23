@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+    border:1px solid black;
+}
+/* wrapper(전체) */
+.wrapper{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+
+}
+#wrapper{
+    padding-bottom: 110px; /* footer의 height값과 동일 */
+}
+ul{
+    padding-left: 5px;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    display: inline-block;
+}
+.header-wrapper,
+.sidebar-wrapper,
+.content-wrapper{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.header-wrapper{
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+.sidebar-wrapper{
+    top: 130px;
+    width: 12%;
+}
+.content-wrapper{
+    top: 130px;
+    left: 13%;
+    width: 80%;
+}
+/* header */
+.nav-ul {
+    width: 30%;
+    margin-left: -10%;
+}
+.nav-item{
+    display: inline-block;
+}
+.nav-main{
+    width: 50%;
+    padding-left: 10%;
+}
+
+/* sidebar */
+
+.hideList{
+    display: none;
+}
+.on .hideList{
+    display: block;
+}
+
+/* content */
+.content-main{
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 700px;
+    height: 400px;
+}
+.content-div-a{
+    text-align: left;
+    display: block;
+    left:850px;
+    width: 150px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+.content-main-image{
+    width: 90%;
+    height: 90%;
+}
+
+.a1{
+    top: 150px;
+}
+.a2{
+    top: 200px;
+}
+
+.content-div{
+    position: absolute;
+}
+
+.content-center{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.join-form,
+.login-form,
+.my-info{
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    margin-left: 350px;
+}
+/* .footer{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+} */
+
+
+
+.footer {
+    width: 100%;
+    height: 110px; /* 내용물에 따라 알맞는 값 설정 */
+    bottom: 0px;
+    position: absolute;
+}
+.footer-text{
+    padding-left: 600px;
+    left: 400px;
+}

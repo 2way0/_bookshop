@@ -1,0 +1,42 @@
+*{
+    border:1px solid black;
+    margin: 0;
+    padding: 0;
+}
+nav,
+footer{
+    height: 100px;
+}
+.header-wrapper1 div,
+.footer-wrapper,
+.footer-wrapper div,
+.search-btn,
+.search-btn div{
+    height: 100%;
+}
+/* 헤더 */
+.header-wrapper1{
+    height: 70%;
+}
+.header-wrapper2{
+    height: 30%;
+}
+.session-on span,
+.session-off span{
+    padding-left: 0 ;
+    padding-right: 0 ;
+}
+/* 컨텐트 */
+.home-main{
+    height: 500px;
+    text-align: center;
+}
+.search-wrapper{
+    padding-top: 45px;
+}
+.join-h2{
+    height: 70px;
+}
+.join-form-wrapper form div{
+    height: 120px;
+}
