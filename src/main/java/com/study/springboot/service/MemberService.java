@@ -1,7 +1,9 @@
 package com.study.springboot.service;
 
 import com.study.springboot.controller.form.LoginForm;
+import com.study.springboot.domain.Cart;
 import com.study.springboot.domain.Member;
+import com.study.springboot.repository.CartRepository;
 import com.study.springboot.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import java.util.List;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final CartRepository cartRepository;
 
     // 회원 가입
     @Transactional
@@ -21,6 +24,9 @@ public class MemberService {
         // 중복회원 검증
         validationDuplicateMember(member.getMember_email());
         memberRepository.save(member);
+        List<Member> findmember = memberRepository.findOneEmail(member.getMember_email());
+        Cart cart = Cart.createCart(findmember.get(0));
+        cartRepository.save(cart);
         return member.getId();
     }
 

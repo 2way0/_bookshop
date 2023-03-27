@@ -24,7 +24,7 @@ public class MemberRepository {
 
     // 이메일로 불러오기
     public List<Member> findOneEmail(String member_email) {
-        log.info("============================email : "+member_email);
+        log.info("============================email : " + member_email);
         List<Member> du = em.createQuery("select m from Member m where m.member_email = :member_email", Member.class).setParameter("member_email", member_email).getResultList();
 //        log.info("============================email-du : "+du.get(0).getMember_email());
         return du;
