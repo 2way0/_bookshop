@@ -86,6 +86,7 @@ public class MemberController {
             log.info("로그인session==============" + session_id);
             message = "로그인 성공";
         }
+        log.info("message===================================="+message);
         return message;
     }
 

@@ -17,7 +17,7 @@ import java.util.List;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
 
@@ -31,7 +31,7 @@ public class Order {
     // 양방향 X
     // 단방향
     // Order가 Delivery를 관리하고 Order가 OrderItem을 관리할 때. 요 그림에서 cascade씀. - 참조하는 주인이 private 오너인 경우에만 씀 - Delivery랑 OrderItem은 Order만 참조해서 쓴다.
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     // 양방향
@@ -40,7 +40,6 @@ public class Order {
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-    private LocalDateTime orders_date;  // 주문 시간
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;   // 주문 상태
@@ -65,9 +64,6 @@ public class Order {
         return order;
     }
 
-    public void setOrders_date(LocalDateTime orders_date) {
-        this.orders_date = orders_date;
-    }
 
     // 주문 취소 상태 변경
     private void cancelStatus() {

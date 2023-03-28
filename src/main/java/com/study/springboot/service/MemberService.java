@@ -9,11 +9,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class MemberService {
+
+    private final EntityManager em;
 
     private final MemberRepository memberRepository;
     private final CartRepository cartRepository;
@@ -24,8 +27,10 @@ public class MemberService {
         // 중복회원 검증
         validationDuplicateMember(member.getMember_email());
         memberRepository.save(member);
-        List<Member> findmember = memberRepository.findOneEmail(member.getMember_email());
-        Cart cart = Cart.createCart(findmember.get(0));
+        Member findMember = memberRepository.findOneEmail(member.getMember_email()).get(0);
+        Cart cart = Cart.createCart(findMember);
+//        cartRepository.save(cart);
+     //   em.persist(cart);
         cartRepository.save(cart);
         return member.getId();
     }

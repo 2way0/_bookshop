@@ -1,8 +1,10 @@
 package com.study.springboot.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
@@ -13,30 +15,28 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString(exclude = "products")
 public class Cart {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
     private Long id;
 
-    // 단방향
+//     양방향
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
+    @JsonIgnore
     private Member member;
 
-    // 단방향
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<OrderItem> orderItems = new ArrayList<>();
+//    // 양방향
+//    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+//    private List<Product> products = new ArrayList<>();
 
-    @Override
-    public String toString() {
-        return "Cart{" +
-                "id=" + id +
-                ", member=" + member.getId() +
-                ", orderItems=" + orderItems.stream().map(OrderItem::getOrder_price) +
-                '}';
-    }
+//    // 양방향 get
+//    public List<Product> getProducts() {
+//        return products;
+//    }
 
 
     // 생성 메서드 ====================================================================
@@ -44,11 +44,15 @@ public class Cart {
     public static Cart createCart(Member member) {
         Cart cart = new Cart();
         cart.member = member;
-//        cart.orderItems.addAll(Arrays.asList(orderItems));
         return cart;
     }
 
-    public void updateCart(OrderItem... orderItems) {
-        this.orderItems = List.of(orderItems);
-    }
+
+//        cart.orderItems.addAll(Arrays.asList(orderItems));
+
+
+//    public void updateCart(Product... products) {
+//        this.products = List.of(products);
+//    }
+
 }

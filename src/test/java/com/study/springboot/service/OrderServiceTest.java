@@ -21,7 +21,7 @@ class OrderServiceTest {
     @Test
     void 주문하기(){
         // 12번 회원 1번 상품 2개 주문
-        int orderTotalPrice = orderService.order(10L, 2L, 2);
+        int orderTotalPrice = orderService.order(1L, 1L, 2);
         log.info("주문 총 가격=============="+orderTotalPrice);
 
     }

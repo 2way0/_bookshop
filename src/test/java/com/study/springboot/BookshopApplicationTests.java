@@ -26,7 +26,7 @@ class BookshopApplicationTests {
 
     @Test
     void 회원가입(){
-        memberService.join(new Member("cart@young","1234","d",new Address("d","d","d")));
+        memberService.join(new Member("card222@young","1234","d",new Address("d","d","d")));
     }
 
 

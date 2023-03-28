@@ -28,7 +28,7 @@ public class OrderService {
     public int order(Long member_id, Long item_id, int count) {
         // 엔티티 조회
         Member member = memberRepository.findOne(member_id);
-        Item item = itemRepository.findOne(item_id);
+        Item item = itemRepository.findItemById(item_id);
 
         // 배송정보 생성
         Delivery delivery = new Delivery(member.getAddress());

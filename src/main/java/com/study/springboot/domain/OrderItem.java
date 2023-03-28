@@ -1,5 +1,6 @@
 package com.study.springboot.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.study.springboot.domain.item.Item;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 public class OrderItem {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_item_id")
     private Long id;
 
@@ -22,10 +23,12 @@ public class OrderItem {
     @JoinColumn(name = "item_id")
     private Item item;
 
-//    // 양방향
-//    @ManyToOne(fetch = FetchType.LAZY)  // 얘도 양방향말고 단방향하면 안되나..? 오더에만 주문아이템 들어가게.- 아니다.오더가 생성되어야
-//    @JoinColumn(name = "order_id")
-//    private Order order;
+    // 양방향
+    @ManyToOne(fetch = FetchType.LAZY)  // 얘도 양방향말고 단방향하면 안되나..? 오더에만 주문아이템 들어가게.- 아니다.오더가 생성되어야
+    @JsonIgnore
+    private Order order;
+
+
 
     private int order_price; // 주문 가격 - 할인 받을 수도 있으므로
     private int count; // 주문 수량

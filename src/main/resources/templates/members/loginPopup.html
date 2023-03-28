@@ -42,13 +42,17 @@
       url: '/members/login?'+actionForm.serialize(),   // 이부분에 컨트롤러 매핑값
       dataType: "text",
       error: function (data){
-        console.log(data);
-        alert(data);
+        alert("다시 시도하세요");
       },
       success: function (data) {
         console.log(data);
-        opener.parent.location.reload();
-        window.close();
+        let message = data;
+        if(message === "로그인 성공"){
+          opener.parent.location.reload();
+          window.close();
+        } else {
+          alert(message);
+        }
       }
     });
   });

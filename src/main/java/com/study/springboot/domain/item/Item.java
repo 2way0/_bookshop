@@ -50,8 +50,7 @@ public abstract class Item {
         this.stock_quantity = stock_quantity;
     }
 
-    public Item(Long id, String item_name, int item_price, int stock_quantity) {
-        this.id = id;
+    public Item( String item_name, int item_price, int stock_quantity) {
         this.item_name = item_name;
         this.item_price = item_price;
         this.stock_quantity = stock_quantity;

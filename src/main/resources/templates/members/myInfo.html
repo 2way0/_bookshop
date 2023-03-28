@@ -8,48 +8,66 @@
     <!-- Header-->
     <div th:replace="layout/bodyHeader :: bodyHeader"/>
     <!-- Sidebar -->
-    <div th:replace="layout/sidebar :: sidebar"/>
+    <!--            <div th:replace="layout/sidebar :: sidebar"/>-->
     <!-- Content-->
-    <div class="content-wrapper" th:object="${member}">
-      <div class="my-info">
-        <div class="form-group">
-          <label>이메일</label>
-          <label class="form-control" th:text="*{member_email}"></label>
+    <div class="container">
+      <div class="join-h2">
+        <h2>알라딘 회원가입</h2>
+      </div>
+      <div class="join">
+        <div class="row">
+          <div class="col-lg-3 ">
+            좌
+          </div>
+          <div class="col-md-6 join-form-wrapper">
+            <div class="content-wrapper" th:object="${member}">
+              <div class="my-info">
+                <div class="form-group">
+                  <label>이메일</label>
+                  <label class="form-control" th:text="*{member_email}"></label>
+                </div>
+                <div class="form-group">
+                  <label>닉네임</label>
+                  <label class="form-control" th:text="*{member_name}"></label>
+                </div>
+                <div class="form-group">
+                  <label>도시명</label>
+                  <label class="form-control" th:text="*{address.city}"></label>
+                </div>
+                <div class="form-group">
+                  <label>상세주소</label>
+                  <label class="form-control" th:text="*{address.detailed_addr}"></label>
+                </div>
+                <div class="form-group">
+                  <label>ZIPCODE</label>
+                  <label class="form-control" th:text="*{address.zipcode}"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            우
+          </div>
         </div>
-        <div class="form-group">
-          <label>닉네임</label>
-          <label class="form-control" th:text="*{member_name}"></label>
-        </div>
-        <div class="form-group">
-          <label>도시명</label>
-          <label class="form-control" th:text="*{address.city}"></label>
-        </div>
-        <div class="form-group">
-          <label>상세주소</label>
-          <label class="form-control" th:text="*{address.detailed_addr}"></label>
-        </div>
-        <div class="form-group">
-          <label>ZIPCODE</label>
-          <label class="form-control" th:text="*{address.zipcode}"></label>
-        </div>
+
       </div>
     </div>
+    <!-- /Content-->
   </div>
   <div th:replace="layout/footer :: footer"/>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script>
-  let sidebarOn = document.querySelector('.sidebar-ul');
-  let clickedClass = "on";
-  function sidebarClick(){
-    sidebarOn.classList.toggle(clickedClass);
-  }
-  sidebarOn.addEventListener("click", sidebarClick);
+<!--    <script>
+        $("#emailChekBtn").click(function (){
+           let inputEmail = $("#inputEmail").val();
+           $.ajax({
 
-  // document.querySelector('#sidebar-ul').addEventListener('click', ()=>{
-  //     document.querySelector('#sidebar-ul').classList.toggle('on');
-  // })
-</script>
+
+
+           });
+        });
+    </script>-->
+<script src = "/js/main.js"></script>
 
 </body>
 </html>

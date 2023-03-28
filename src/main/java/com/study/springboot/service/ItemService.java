@@ -7,38 +7,41 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class ItemService {
 
+    private final EntityManager em;
     private final ItemRepository itemRepository;
 
     // 상품 등록
     @Transactional
     public void saveItem(Item item) {
-        itemRepository.save(item);
+        em.persist(item);
     }
 
     // 변경 감지로 데이터 변경
     @Transactional
     public void updateItem(Long itemId, String name, int price, int stockQuntity) {
-        Item findItem = itemRepository.findOne(itemId); // find로 찾아 온 findItem은 영속 상태. - 따라서 값을 세팅하면 @Transactional에 의해 커밋 됨. flush를 날림.
+        Item findItem = itemRepository.findItemById(itemId); // find로 찾아 온 findItem은 영속 상태. - 따라서 값을 세팅하면 @Transactional에 의해 커밋 됨. flush를 날림.
         findItem.change(itemId, name, price, stockQuntity);
     }
 
-    public List<Book> findBooks() {
-        return itemRepository.findBookAll();
-    }
+//    public List<Book> findBooks() {
+//        return itemRepository.findItemByDtype("B");
+//    }
 
     public List<Item> findBooks2() {
-        return itemRepository.findBookAll2();
+        return itemRepository.findAll();
     }
 
-    public Item findOne(Long itemId) {
-        return itemRepository.findOne(itemId);
+    public Optional<Item> findOne(Long itemId) {
+        return itemRepository.findById(itemId);
     }
 
 }
