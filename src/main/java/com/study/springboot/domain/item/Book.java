@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("B")
 @Getter
-//@ToString
 @NoArgsConstructor
 public class Book extends Item {
 
@@ -19,21 +18,21 @@ public class Book extends Item {
     private String publisher;
 
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "id=" + super.getId() +
-                ", item_name='" + super.getItem_name() + '\'' +
-                ", item_price=" + getItem_price() +
-                ", stock_quantity=" + getStock_quantity() +
-                '}' +
-                "Book{" +
-                "author='" + author + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", publisher='" + publisher + '\'' +
-                '}';
-
-    }
+//    @Override
+//    public String toString() {
+//        return "Item{" +
+//                "id=" + super.getId() +
+//                ", item_name='" + super.getItem_name() + '\'' +
+//                ", item_price=" + getItem_price() +
+//                ", stock_quantity=" + getStock_quantity() +
+//                '}' +
+//                "Book{" +
+//                "author='" + author + '\'' +
+//                ", isbn='" + isbn + '\'' +
+//                ", publisher='" + publisher + '\'' +
+//                '}';
+//
+//    }
 
 
     public Book( String item_name, int item_price, int stock_quantity, String author, String isbn, String publisher) {
@@ -42,4 +41,5 @@ public class Book extends Item {
         this.isbn = isbn;
         this.publisher = publisher;
     }
+
 }

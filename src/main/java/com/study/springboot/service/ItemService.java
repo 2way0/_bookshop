@@ -1,5 +1,6 @@
 package com.study.springboot.service;
 
+import com.study.springboot.domain.item.Album;
 import com.study.springboot.domain.item.Book;
 import com.study.springboot.domain.item.Item;
 import com.study.springboot.repository.ItemRepository;
@@ -40,8 +41,15 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Optional<Item> findOne(Long itemId) {
-        return itemRepository.findById(itemId);
+    public Book findOne(Long itemId) {
+        return itemRepository.findItemById(itemId);
+    }
+
+    public List<Book> findbooks(){
+        return itemRepository.findBooks();
+    }
+    public List<Album> findAlbums(){
+        return itemRepository.findAlbums();
     }
 
 }

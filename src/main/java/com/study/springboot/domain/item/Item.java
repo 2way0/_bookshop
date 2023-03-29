@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Getter
-//@ToString
+@ToString
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)  // 싱글테이블전략
 @DiscriminatorColumn(name = "dtype")  // 구분될 때 Book이면 ~~할거야 이렇게 나오는 것.
 public abstract class Item {
@@ -24,6 +24,7 @@ public abstract class Item {
     private String item_name;
     private int item_price;
     private int stock_quantity;
+
 
     public Item() {
 

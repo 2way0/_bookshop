@@ -1,7 +1,57 @@
+/*
 *{
     border:1px solid black;
     margin: 0;
     padding: 0;
+}
+nav,
+footer{
+    height: 100px;
+}
+.header-wrapper1 div,
+.footer-wrapper,
+.footer-wrapper div,
+.search-btn,
+.search-btn div{
+    height: 100%;
+}
+!* 헤더 *!
+.header-wrapper1{
+    height: 70%;
+}
+.header-wrapper2{
+    height: 30%;
+}
+.session-on span,
+.session-off span{
+    padding-left: 0 ;
+    padding-right: 0 ;
+}
+!* 컨텐트 *!
+.home-main{
+    height: 500px;
+    text-align: center;
+}
+.search-wrapper{
+    padding-top: 45px;
+}
+.join-h2{
+    height: 70px;
+}
+.join-form-wrapper form div{
+    height: 120px;
+}
+*/
+
+
+*{
+    border:1px solid black;
+    margin: 0;
+    padding: 0;
+}
+.row{
+    padding: 0;
+    margin: 0;
 }
 nav,
 footer{
@@ -21,6 +71,12 @@ footer{
 .header-wrapper2{
     height: 30%;
 }
+.home-main{
+    text-align: center;
+}
+.home-center{
+    height: 500px;
+}
 .session-on span,
 .session-off span{
     padding-left: 0 ;
@@ -28,8 +84,7 @@ footer{
 }
 /* 컨텐트 */
 .home-main{
-    height: 500px;
-    text-align: center;
+    /* height: 500px; */
 }
 .search-wrapper{
     padding-top: 45px;
@@ -37,6 +92,82 @@ footer{
 .join-h2{
     height: 70px;
 }
-.join-form-wrapper form div{
-    height: 120px;
+.item-div{
+    height: 300px;
+}
+.item-image img{
+    width: 60%;
+    height: 60%;
+}
+.item-div h3,
+.item-div h4 {
+    margin: 5px;
+    padding: 2px;
+    height: 10%;
+}
+.item-detail-img,
+.item-detail-info{
+    height: 500px;
+}
+.item-detail-img img{
+    width: 80%;
+    height: 90%;
+    padding-top: 25px;
+}
+.detail-content{
+    padding-top: 30px;
+    padding-right: 0;
+    height: 40%;
+    text-align: right;
+}
+.detail-content div{
+    height: 20%;
+}
+.book-content {
+    height: 40%;
+}
+.book-content div{
+    height: 100%;
+}
+.cart-order{
+    height: 20%;
+    padding: 10px;
+}
+.cart-order button{
+    width: 150px;
+    height: 100%;
+}
+.cart-product{
+    height: 250px;
+}
+.cart-product img{
+    margin-top: 10px;
+    height: 230px;
+
+}
+.cart-content{
+    height: 150px;
+    padding-top: 40px;
+    padding-right: 0;
+    text-align: right;
+}
+.product-box{
+    height: 250px;
+    padding: 30px;
+}
+.order-all{
+    margin: 0;
+    padding: 0;
+    height: 70px;
+}
+.order-all button{
+    width: 300px;
+    height: 100%;
+}
+.total-price-info{
+    height: 200px;
+}
+.total-price-info button{
+    width: 200px;
+    height: 60px;
 }

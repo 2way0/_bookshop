@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: header">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="wrapper">
+            <!-- Header-->
+            <div th:replace="layout/bodyHeader :: bodyHeader"/>
+            <!-- Sidebar -->
+<!--            <div th:replace="layout/sidebar :: sidebar"/>-->
+            <!-- Content-->
+            <div class="container home-main">
+                <div class="join-h2">
+                    <h2>[[${item}]]</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 item-detail-img">
+                        <img src="/book_image/book1.jpeg" alt="">
+                    </div>
+                    <div class="col-lg-7 row item-detail-info">
+                        <div class="col-md-6 detail-content">
+                            <div>제목</div>
+                            <div>가격</div>
+                            <div>저자</div>
+                            <div>출판사</div>
+                        </div>
+                        <div class="col-md-6 detail-content">
+                            <div>[[${itemDetail.item_name}]]</div>
+                            <div>[[${itemDetail.item_price}]]</div>
+                            <div>[[${itemDetail.author}]]</div>
+                            <div>[[${itemDetail.publisher}]]</div>
+                        </div>
+                        <div class="col-md-12 book-content">
+                            <div>상세내용</div>
+                        </div>
+                        <div class="col-md-12 cart-order">
+                            <label for="count">수량</label>
+                            <input id="count" />
+                            <button>장바구니 담기</button>
+                            <button>바로 구매하기</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Content-->
+        </div>
+        <div th:replace="layout/footer :: footer"/>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src = "/js/main.js"></script>
+
+</body>
+</html>

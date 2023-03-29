@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: header">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="wrapper">
+            <!-- Header-->
+            <div th:replace="layout/bodyHeader :: bodyHeader"/>
+            <!-- Sidebar -->
+<!--            <div th:replace="layout/sidebar :: sidebar"/>-->
+            <!-- Content-->
+            <div class="container home-main">
+                <div class="join-h2">
+                    <h2>[[${item}]]</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 item-div" th:each="itemList : ${itemList}">
+                        <a th:href="@{/itemDetail(item_id=${itemList.getId()})}">
+                        <div class="item-image">
+                            <img src="/book_image/book1.jpeg" alt="">
+                        </div>
+                        <h3>[[${itemList.item_name}]]</h3>
+                        <h4>[[${itemList.item_price}]]</h4>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- /Content-->
+        </div>
+        <div th:replace="layout/footer :: footer"/>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!--    <script>
+        $("#emailChekBtn").click(function (){
+           let inputEmail = $("#inputEmail").val();
+           $.ajax({
+
+
+
+           });
+        });
+    </script>-->
+    <script src = "/js/main.js"></script>
+
+</body>
+</html>

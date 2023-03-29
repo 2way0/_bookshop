@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: header">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="wrapper">
+            <!-- Header-->
+            <div th:replace="layout/bodyHeader :: bodyHeader"/>
+            <!-- Sidebar -->
+<!--            <div th:replace="layout/sidebar :: sidebar"/>-->
+            <!-- Content-->
+            <div class="container home-main">
+                <div class="join-h2">
+                    <h2>장바구니</h2>
+                </div>
+                <div class="row col-lg-8" >
+                    <div class="row cart-product">
+                        <div class="col-lg-5 cart-product-img">
+                            <img src="book_image/book1.jpeg" alt="">
+                        </div>
+                        <div class="col-lg-7 row product-box">
+                            <div class="col-md-6 cart-content">
+                                <div>제목</div>
+                                <div>가격</div>
+                            </div>
+                            <div class="col-md-6 cart-content">
+                                <div>제목</div>
+                                <div>가격</div>
+                            </div>
+                            <div class="col-md-12 cart-order">
+                                <label>수량</label>
+                                <input />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row cart-product">
+                        <div class="col-lg-5 cart-product-img">
+                            <img src="book_image/book1.jpeg" alt="">
+                        </div>
+                        <div class="col-lg-7 row product-box">
+                            <div class="col-md-6 cart-content">
+                                <div>제목</div>
+                                <div>가격</div>
+                            </div>
+                            <div class="col-md-6 cart-content">
+                                <div>제목</div>
+                                <div>가격</div>
+                            </div>
+                            <div class="col-md-12 cart-order">
+                                <label>수량</label>
+                                <input />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row cart-product">
+                        <div class="col-lg-5 cart-product-img">
+                            <img src="book_image/book1.jpeg" alt="">
+                        </div>
+                        <div class="col-lg-7 row product-box">
+                            <div class="col-md-6 cart-content">
+                                <div>제목</div>
+                                <div>가격</div>
+                            </div>
+                            <div class="col-md-6 cart-content">
+                                <div>제목</div>
+                                <div>가격</div>
+                            </div>
+                            <div class="col-md-12 cart-order">
+                                <label >수량</label>
+                                <input/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row col-lg-4" >
+                    <div class="order-all">
+                        <button>일괄 주문</button>
+                    </div>
+                    <div class="total-price-info">
+                        <h2>총 금액 : 20000원</h2>
+                        <button>결제하기</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Content-->
+        </div>
+        <div th:replace="layout/footer :: footer"/>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!--    <script>
+        $("#emailChekBtn").click(function (){
+           let inputEmail = $("#inputEmail").val();
+           $.ajax({
+
+
+
+           });
+        });
+    </script>-->
+    <script src = "/js/main.js"></script>
+
+</body>
+</html>

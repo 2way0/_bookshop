@@ -1,9 +1,11 @@
 package com.study.springboot.repository;
 
+import com.study.springboot.domain.item.Album;
 import com.study.springboot.domain.item.Book;
 import com.study.springboot.domain.item.Item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -17,8 +19,14 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     Book findItemById(Long item_id);
 
 
+    @Query(value = "select * from Item where dtype = 'B'",nativeQuery = true)
+    List<Book> findBooks();
+
+    @Query(value = "select * from Item where dtype = 'A'",nativeQuery = true)
+    List<Album> findAlbums();
 
 
+    // dtype조회
 
 
 
