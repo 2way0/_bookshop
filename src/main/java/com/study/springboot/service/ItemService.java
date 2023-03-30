@@ -41,7 +41,7 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Book findOne(Long itemId) {
+    public Item findOne(Long itemId) {
         return itemRepository.findItemById(itemId);
     }
 

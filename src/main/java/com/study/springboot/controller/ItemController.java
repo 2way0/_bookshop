@@ -37,13 +37,23 @@ public class ItemController {
     }
 
     @GetMapping("/itemDetail")
-    public String itemDetail(String item_id, Model model) {
+    public String itemDetail(String item_id, String item_type, Model model) {
         log.info("itemDetail====아이템 번호 넘어옴======================"+item_id);
+        log.info("itemDetail====아이템 타입 넘어옴======================"+item_type);
 
-        Book book = itemService.findOne(Long.valueOf(item_id));
-        log.info("itemDetail====아이템 번호 넘어옴======================"+book);
-        model.addAttribute("itemDetail", book);
-        model.addAttribute("item", "도서");
+        if (item_type.equals("도서")) {
+            Book book = (Book) itemService.findOne(Long.valueOf(item_id));
+            log.info("itemDetail====아이템 번호 넘어옴======================"+book);
+            model.addAttribute("itemDetail", book);
+            model.addAttribute("item", "도서");
+        } else if (item_type.equals("음반")) {
+            Album album = (Album) itemService.findOne(Long.valueOf(item_id));
+            log.info("itemDetail====아이템 번호 넘어옴======================"+album);
+            model.addAttribute("itemDetail", album);
+            model.addAttribute("item", "음반");
+        }
+
+
 
         return "item/itemDetail";
     }

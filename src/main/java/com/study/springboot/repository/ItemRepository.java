@@ -16,7 +16,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
 
     // 한 건 조회
-    Book findItemById(Long item_id);
+    Item findItemById(Long item_id);
 
 
     @Query(value = "select * from Item where dtype = 'B'",nativeQuery = true)

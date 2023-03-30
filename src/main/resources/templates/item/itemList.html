@@ -16,7 +16,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-3 item-div" th:each="itemList : ${itemList}">
-                        <a th:href="@{/itemDetail(item_id=${itemList.getId()})}">
+                        <a th:href="@{/itemDetail(item_id=${itemList.getId()},item_type=${item})}">
                         <div class="item-image">
                             <img src="/book_image/book1.jpeg" alt="">
                         </div>

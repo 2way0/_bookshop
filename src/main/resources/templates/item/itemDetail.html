@@ -22,23 +22,29 @@
                         <div class="col-md-6 detail-content">
                             <div>제목</div>
                             <div>가격</div>
-                            <div>저자</div>
-                            <div>출판사</div>
+                            <div th:if="${item}=='도서'">저자</div>
+                            <div th:if="${item}=='도서'">출판사</div>
+                            <div th:if="${item}=='음반'">아티스트</div>
+                            <div th:if="${item}=='음반'">미디어</div>
                         </div>
                         <div class="col-md-6 detail-content">
                             <div>[[${itemDetail.item_name}]]</div>
                             <div>[[${itemDetail.item_price}]]</div>
-                            <div>[[${itemDetail.author}]]</div>
-                            <div>[[${itemDetail.publisher}]]</div>
+                            <div th:if="${item}=='도서'">[[${itemDetail.author}]]</div>
+                            <div th:if="${item}=='도서'">[[${itemDetail.publisher}]]</div>
+                            <div th:if="${item}=='음반'">[[${itemDetail.artist}]]</div>
+                            <div th:if="${item}=='음반'">[[${itemDetail.media}]]</div>
                         </div>
                         <div class="col-md-12 book-content">
                             <div>상세내용</div>
                         </div>
                         <div class="col-md-12 cart-order">
+                            <form class="item-detail-form">
                             <label for="count">수량</label>
-                            <input id="count" />
-                            <button>장바구니 담기</button>
-                            <button>바로 구매하기</button>
+                            <input id="count" name="count" /><input type="hidden" name="item_id" th:value="${itemDetail.getId()}">
+                            <button type="button" class="add-cart">장바구니 담기</button>
+                            <button type="button" class="order-now">바로 구매하기</button>
+                            </form>
                         </div>
                     </div>
 
@@ -50,6 +56,25 @@
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src = "/js/main.js"></script>
+    <script>
+        let itemDetailForm = $(".item-detail-form");
+        console.log(itemDetailForm);
+        $(".add-cart").click(function (){
+           $.ajax({
+               type: 'POST',
+               url: 'addCart?'+itemDetailForm.serialize(),
+               dataType: "text",
+               error:function (data){
+                   alert("잠시 후 다시 시도하세요");
+               },
+               success:function (data){
+                   console.log(data);
+                   alert(data);
+               }
+           }) ;
+        });
+
+    </script>
 
 </body>
 </html>
