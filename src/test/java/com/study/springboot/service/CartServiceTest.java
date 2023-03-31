@@ -6,6 +6,7 @@ import com.study.springboot.domain.Member;
 import com.study.springboot.domain.Product;
 import com.study.springboot.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -49,9 +50,15 @@ class CartServiceTest {
         cartService.addCart(1L, 2L, 2);
     }
 
-//    @Test
-//    void 확인() {
-//        List<Product> product = cartService.productCart(1L,1L);
-//        log.info("dddddddddddddddddddddddd"+product.get(0).getId());
-//    }
+    @Test
+    void 확인() {
+        List<Product> product = cartService.memberCartCheck(1L);
+        product.stream().forEach(t-> {
+            int count = t.getCount();
+            log.info(String.valueOf(count));
+        });
+
+    }
+
+
 }

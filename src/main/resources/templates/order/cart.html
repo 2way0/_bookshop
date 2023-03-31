@@ -22,15 +22,17 @@
                         <div class="col-lg-7 row product-box">
                             <div class="col-md-6 cart-content">
                                 <div>제목</div>
-                                <div>가격</div>
+                                <div>상품 가격</div>
                             </div>
                             <div class="col-md-6 cart-content">
                                 <div>[[${cartList.item_name}]]</div>
                                 <div>[[${cartList.item_price}]]</div>
+                                <input class="each-price" th:value="${cartList.total_item_price}">
                             </div>
                             <div class="col-md-12 cart-order">
                                 <label>수량</label>
-                                <input th:value="cartList.count"/>
+                                <input th:value="${cartList.count}"/>
+                                <div>수량 가격[[${cartList.total_price}]]</div>
                                 <div style="display: none" class="hidden-price" ></div>
                             </div>
                         </div>
@@ -41,8 +43,8 @@
                     <div class="order-all">
                         <button class="cart-order-all">일괄 주문</button>
                     </div>
-                    <div style="display: none" class="total-price-info">
-                        <h2 class="cart-total-price">총 금액</h2>
+                    <div class="total-price-info">
+                        <div>[[${cartTotalPrice}]]</div>
 
                         <button>결제하기</button>
                     </div>
@@ -65,19 +67,30 @@
     </script>-->
     <script src = "/js/main.js"></script>
     <script>
-        $(".cart-order-all").click(function (){
-            $('.tracksNo').each(function(idx,ele){
+        // $(".cart-order-all").click(function (){
+        //     let sum = 0;
+        //     $('.each-price').each(function (idx,ele){
+        //        if (!isNaN(this.value()&&this.lengh!=0)){
+        //            sum += parseInt($(ele).val().toString());
+        //            $('#cart-total-price').val(sum);
+        //            console.log(sum)
+        //        }
+        //     });
+        // });
 
-                //입력값 있는거만
-
-                if(!isNaN(this.value)&&this.value.length!=0){
-
-                    Sum+=parseInt($(ele).val());
-
-                    $('#total').val(Sum);
-
-                }
-        });
+        // $(".cart-order-all").click(function (){
+        //     $('.tracksNo').each(function(idx,ele){
+        //
+        //         //입력값 있는거만
+        //
+        //         if(!isNaN(this.value)&&this.value.length!=0){
+        //
+        //             Sum+=parseInt($(ele).val());
+        //
+        //             $('#total').val(Sum);
+        //
+        //         }
+        // });
 
     </script>
 

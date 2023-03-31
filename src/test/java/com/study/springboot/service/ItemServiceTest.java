@@ -51,7 +51,7 @@ class ItemServiceTest {
     @Test
     void 도서_한건_가져오기(){
 
-        Book book = itemService.findOne(1L);
+        Item book = itemService.findOne(1L);
         log.info("==================아이템 이름======="+book.getItem_name());
         log.info("==================아이템 타입 확인======="+ book.getClass().equals(Book.class));
 

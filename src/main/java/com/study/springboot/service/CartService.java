@@ -35,7 +35,7 @@ public class CartService {
         Cart cart = cartRepository.findCartByMember_id(member_id);
         Item item = itemRepository.findItemById(item_id);
 
-        List<Product> existProduct = productRepository.selectCartProducts(cart.getId(), item_id);
+        List<Product> existProduct = productRepository.existCartProducts(cart.getId(), item_id);
         if (!existProduct.isEmpty()) {
             Long product_id = existProduct.get(0).getId();
             Product product = productRepository.findProductById(product_id);
@@ -64,9 +64,9 @@ public class CartService {
 //    }
 
 
-//    public List<Product> existProduct(Long cart_id, Long item_id) {
-//        return productRepository.selectCartProducts(cart_id, item_id);
-//    }
+    public List<Product> memberCartCheck(Long cart_id) {
+        return productRepository.memberCartCheck(cart_id);
+    }
 
 
 }
